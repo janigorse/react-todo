@@ -11,9 +11,9 @@ describe("AddTodo", () => {
         expect(AddTodo).toExist();
     });
 
-    it('should call onSetTodo if text is not empty', () => {
+    it('should call onAddTodo if text is not empty', () => {
         var spy = expect.createSpy();
-        var addTodo = TestUtils.renderIntoDocument(<AddTodo onSetTodo={spy}/>);
+        var addTodo = TestUtils.renderIntoDocument(<AddTodo onAddTodo={spy}/>);
         var $el = $(ReactDOM.findDOMNode(addTodo));
 
         addTodo.refs.text.value = "some test text";
@@ -21,9 +21,9 @@ describe("AddTodo", () => {
         expect(spy).toHaveBeenCalledWith("some test text");
     });
 
-     it('should NOT call onSetTodo if text is empty', () => {
+     it('should NOT call onAddTodo if text is empty', () => {
         var spy = expect.createSpy();
-        var addTodo = TestUtils.renderIntoDocument(<AddTodo onSetTodo={spy}/>);
+        var addTodo = TestUtils.renderIntoDocument(<AddTodo onAddTodo={spy}/>);
         var $el = $(ReactDOM.findDOMNode(addTodo));
 
         addTodo.refs.text.value = "";
